@@ -102,6 +102,7 @@ public class AbstractCommandLine implements ICommandLine {
     if (isEmtyOrNull(argHelper.getOutputFolder())) {
       logErrorAndThrowException(Messages.outputfolder_mandatory);
     }
+    
     // check -import argument
     if (isEmtyOrNull(argHelper.getImportProjects())) {
       setMode(CommandLineMode.NO_IMPORT);

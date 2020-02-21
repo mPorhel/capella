@@ -67,7 +67,7 @@ public class CommandLineApp extends AbstractApplication {
       return IApplication.EXIT_RELAUNCH;
     }
 
-    return launchApp(app, context);
+    return launchCommandLine(app, context);
 
   }
 
@@ -112,28 +112,28 @@ public class CommandLineApp extends AbstractApplication {
   }
   
   /**
-   * @param app
+   * @param commandLine
    */
-  private Integer launchApp(ICommandLine app, IApplicationContext context) {
+  private Integer launchCommandLine(ICommandLine commandLine, IApplicationContext context) {
     Integer status = IApplication.EXIT_OK;
     try {
       isWorkspaceInUse();
 
-      app.parseContext(context);
+      commandLine.parseContext(context);
 
       if (helpNeeded()) {
-        app.printHelp();
+        commandLine.printHelp();
         return status;
       }
 
       // precondition: check parameters validity
-      app.checkArgs(context);
+      commandLine.checkArgs(context);
 
       // prepare execution (e.g. import project into a specified workspace)
-      app.prepare(context);
+      commandLine.prepare(context);
 
       // call execute
-      app.execute(context);
+      commandLine.execute(context);
 
     } catch (CommandLineException exception) {
       __logger.error(exception.getMessage());

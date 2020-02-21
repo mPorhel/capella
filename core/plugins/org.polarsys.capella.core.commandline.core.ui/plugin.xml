@@ -18,4 +18,12 @@
             extension="zip">
       </FileImporterExtension>
    </extension>
+   
+   <extension id="ook" point="org.eclipse.e4.workbench.model">
+       <processor
+             apply="always"
+             beforefragment="true"
+             class="org.polarsys.capella.core.commandline.core.ui.WorkbechModelProcessor"/>
+    </extension>
+    
 </plugin>

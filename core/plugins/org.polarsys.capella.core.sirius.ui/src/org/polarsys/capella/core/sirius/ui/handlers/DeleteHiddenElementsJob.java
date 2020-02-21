@@ -39,7 +39,6 @@ public class DeleteHiddenElementsJob extends WorkspaceJob {
 
   @Override
   public IStatus runInWorkspace(IProgressMonitor monitor_p) throws CoreException {
-
     RemoveHiddenElementsCommand deleteHiddenEltCmd =
         new RemoveHiddenElementsCommand(_representationsToRefresh, TransactionHelper.getExecutionManager(_session), _unsynchDiags);
     TransactionHelper.getExecutionManager(_session).execute(deleteHiddenEltCmd);
